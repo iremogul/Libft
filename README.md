@@ -1,51 +1,51 @@
-*Bu proje 42 müfredatının bir parçası olarak geliştirilmiş ve oluşturulmuştur.*
+*This project has been created as part of the 42 curriculum.*
 
 # Libft
 
-## Açıklama (Description)
-Libft, C programlama dilindeki standart kütüphane (libc) fonksiyonlarının birçoğunu ve çeşitli ek yardımcı fonksiyonları baştan yazdığımız ilk 42 projesidir. Amacımız, ilerideki tüm projelerimizde temel araç seti olarak kullanmak üzere güvenilir, optimize edilmiş ve standartlara uygun kendi statik kütüphanemizi (`libft.a`) oluşturmaktır.
+## Description
+Libft is the first project of the 42 curriculum where we recode many of the standard C library (libc) functions alongside various additional utility functions. The goal is to create our own reliable, optimized, and standard-compliant static library (`libft.a`) to serve as a foundational toolset for all future projects. 
 
-Bu proje sayesinde bellek yönetimi (memory allocation), string manipülasyonu ve standart C fonksiyonlarının arka planda nasıl çalıştığına dair derinlemesine bir anlayış kazanılmıştır.
-
----
-
-## İçerik ve Fonksiyonlar
-Bu kütüphane, zorunlu (mandatory) bölüm gereksinimlerine göre iki ana kategorideki fonksiyonları içermektedir:
-
-### 1. Libc Fonksiyonları
-Standart C kütüphanesinde bulunan temel fonksiyonların yeniden yazılmış versiyonları:
-* **Karakter Kontrolleri ve Dönüşümleri:** `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`
-* **String İşlemleri:** `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`
-* **Bellek (Memory) İşlemleri:** `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`
-* **Dönüşüm ve Dinamik Bellek:** `ft_atoi`, `ft_calloc`, `ft_strdup`
-
-### 2. Ek Fonksiyonlar (Additional Functions)
-Standart kütüphanede yer almayan ancak 42 projelerinde sıkça ihtiyaç duyulan yardımcı fonksiyonlar:
-* **String Manipülasyonu:** `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`
-* **Dönüşümler ve İterasyonlar:** `ft_itoa`, `ft_strmapi`, `ft_striteri`
-* **Dosya Tanımlayıcı (File Descriptor) Çıktıları:** `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
+Through this project, a deep understanding of memory allocation, string manipulation, and the inner workings of standard C functions is achieved.
 
 ---
 
-## Kurulum ve Kullanım (Instructions)
+## Contents and Functions
+This library contains functions categorized into two main groups according to the mandatory part requirements:
 
-### Derleme
-Kütüphaneyi derlemek ve `libft.a` statik kütüphane dosyasını oluşturmak için terminalde projenin kök dizinine gidip aşağıdaki komutu çalıştırmanız yeterlidir:
+### 1. Libc Functions
+Recoded versions of the fundamental functions found in the standard C library:
+* **Character Checks and Conversions:** `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`
+* **String Operations:** `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`
+* **Memory Operations:** `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`
+* **Conversion and Dynamic Memory Allocation:** `ft_atoi`, `ft_calloc`, `ft_strdup`
+
+### 2. Additional Functions
+Utility functions that are not part of the standard library but are frequently needed in 42 projects:
+* **String Manipulation:** `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`
+* **Conversions and Iterations:** `ft_itoa`, `ft_strmapi`, `ft_striteri`
+* **File Descriptor Outputs:** `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
+
+---
+
+## Instructions
+
+### Compilation
+To compile the library and create the `libft.a` static library file, simply navigate to the root directory of the project in your terminal and run the following command:
 make
 
-Bu işlem, tüm `.c` kaynak dosyalarınızı `-Wall -Wextra -Werror` bayraklarıyla derleyerek kütüphaneyi kullanıma hazır hale getirecektir. Projenizi derledikten sonra temizlik yapmak için aşağıdaki kuralları kullanabilirsiniz:
-* `make clean`: Yalnızca derlenmiş nesne (object) dosyalarını (`.o`) siler.
-* `make fclean`: Nesne dosyalarıyla birlikte oluşturulan `libft.a` dosyasını da siler.
-* `make re`: Her şeyi tamamen temizler ve kütüphaneyi baştan derler.
+This process will compile all your `.c` source files with `-Wall -Wextra -Werror` flags, making the library ready to use. To clean up after compiling your project, you can use the following rules:
+* `make clean`: Removes only the compiled object files (`.o`).
+* `make fclean`: Removes the object files as well as the generated `libft.a` file.
+* `make re`: Completely cleans everything and recompiles the library from scratch.
 
-### Kütüphanenin Kullanımı
-Oluşturduğunuz `libft.a` dosyasını kendi C projelerinizde kullanmak için:
-1. `libft.h` başlık (header) dosyasını ilgili kodlarınıza `#include "libft.h"` şeklinde ekleyin.
-2. Kodunuzu derlerken kütüphaneyi derleyiciye bağlayın (link):
+### Usage
+To use the generated `libft.a` file in your own C projects:
+1. Include the `libft.h` header file in your relevant code as `#include "libft.h"`.
+2. Link the library to the compiler when compiling your code:
 gcc main.c -L. -lft
 
 ---
 
-## Kaynaklar ve Yapay Zeka Kullanımı (Resources)
-* **Temel Referanslar:** Linux man sayfaları (manual pages) ve C programlama standartları.
-* **Yapay Zeka (AI) Kullanımı:** Geliştirme sürecinde yapay zeka araçları; Makefile kurgusunun oluşturulması, `ft_split` gibi karmaşık bellek yönetimi gerektiren fonksiyonların mantıksal taslaklarının çıkarılması ve pointer aritmetiği konularında kavramsal açıklamalar almak amacıyla kullanılmıştır. Üretilen hiçbir çözüm projeye doğrudan kopyalanmamış; her bir fonksiyon manuel testlerden geçirilmiş ve çalışma mekanizması tamamen anlaşılarak koda entegre edilmiştir.
+## Resources & AI Usage
+* **Core References:** Linux manual pages and C programming standards.
+* **AI Usage:** During the development process, AI tools were used to brainstorm the setup of the Makefile, generate logical outlines for functions requiring complex memory management like `ft_split`, and obtain conceptual explanations regarding pointer arithmetic. No generated solutions were directly copy-pasted into the project; each function was subjected to manual testing and integrated into the codebase only after its underlying mechanism was fully understood.
